@@ -1,0 +1,11 @@
+{
+  "name": "mailcerti",
+  "version": "1.0.0",
+  "description": "Event Email & Certificate Automation System",
+  "private": true,
+  "scripts": {
+    "dev:backend": "cd backend && node server.js",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm install && npm run build"
+  }
+}

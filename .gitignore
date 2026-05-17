@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.npm
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.production
+
+# Build output
+dist/
+build/
+
+# Uploads (runtime files)
+backend/uploads/temp/
+backend/uploads/certificates/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test files
+backend/test-email.js
