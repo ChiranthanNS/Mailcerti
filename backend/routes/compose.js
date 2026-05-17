@@ -16,7 +16,7 @@ async function getGemini() {
     throw new Error('Gemini API key not configured. Go to ⚙️ Settings → AI Config and add your key from https://aistudio.google.com/apikey');
   }
   const genAI = new GoogleGenerativeAI(apiKey);
-  return genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+  return genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 }
 
 
@@ -64,7 +64,7 @@ Requirements:
 Return ONLY valid JSON in this exact format, no markdown:
 {"subject": "...", "html": "..."}`;
 
-    const model = getGemini();
+    const model = await getGemini();
     const result = await model.generateContent(prompt);
     const text = result.response.text().trim();
 
