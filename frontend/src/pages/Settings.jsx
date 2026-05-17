@@ -7,7 +7,8 @@ export default function Settings() {
     fromName: '',
     fromEmail: '',
     orgName: '',
-    replyTo: ''
+    replyTo: '',
+    geminiApiKey: ''
   });
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
@@ -17,10 +18,11 @@ export default function Settings() {
   useEffect(() => {
     api.get('/settings')
       .then(({ data }) => setForm({
-        fromName:  data.fromName  || '',
-        fromEmail: data.fromEmail || '',
-        orgName:   data.orgName   || '',
-        replyTo:   data.replyTo   || ''
+        fromName:     data.fromName     || '',
+        fromEmail:    data.fromEmail    || '',
+        orgName:      data.orgName      || '',
+        replyTo:      data.replyTo      || '',
+        geminiApiKey: data.geminiApiKey || ''
       }))
       .catch(() => toast.error('Failed to load settings'))
       .finally(() => setLoading(false));
@@ -123,6 +125,24 @@ export default function Settings() {
             />
             <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 4 }}>
               If set, replies from recipients go here instead of the From Email
+            </div>
+          </div>
+
+          <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '8px 0' }} />
+          <div className="section-title" style={{ marginBottom: 8 }}>🤖 AI Configuration (Gemini)</div>
+          <div className="form-group">
+            <label className="form-label">Google Gemini API Key</label>
+            <input
+              className="form-control"
+              type="password"
+              placeholder='AIza...'
+              value={form.geminiApiKey}
+              onChange={e => setForm({ ...form, geminiApiKey: e.target.value })}
+            />
+            <div style={{ fontSize: 11, color: 'var(--text-secondary)', marginTop: 4 }}>
+              Required for AI email generation in Compose page. Free to use. &nbsp;
+              <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer"
+                style={{ color: 'var(--primary)' }}>Get your key at aistudio.google.com →</a>
             </div>
           </div>
 

@@ -6,7 +6,7 @@ const emailLogSchema = new mongoose.Schema({
   recipientName: { type: String },
   type: {
     type: String,
-    enum: ['promotion', 'confirmation', 'shortlisted', 'rejected', 'reminder', 'certificate', 'test'],
+    enum: ['promotion', 'confirmation', 'shortlisted', 'rejected', 'reminder', 'certificate', 'test', 'custom'],
     required: true
   },
   subject: { type: String },

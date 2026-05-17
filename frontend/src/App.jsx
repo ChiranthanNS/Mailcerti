@@ -6,6 +6,7 @@ import Colleges from './pages/Colleges';
 import Registrations from './pages/Registrations';
 import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
+import Compose from './pages/Compose';
 import './App.css';
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
             <NavLink to="/analytics" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
               <span className="nav-icon">📈</span> Analytics
             </NavLink>
+            <NavLink to="/compose" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'}>
+              <span className="nav-icon">✍️</span> Compose Email
+            </NavLink>
             <NavLink to="/settings" className={({isActive}) => isActive ? 'nav-item active' : 'nav-item'} style={{ marginTop: 'auto' }}>
               <span className="nav-icon">⚙️</span> Settings
             </NavLink>
@@ -53,6 +57,7 @@ function App() {
             <Route path="/colleges" element={<Colleges />} />
             <Route path="/registrations" element={<Registrations />} />
             <Route path="/analytics" element={<Analytics />} />
+            <Route path="/compose" element={<Compose />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>

@@ -2,11 +2,12 @@ const mongoose = require('mongoose');
 
 // Singleton settings document — only one record ever exists
 const settingsSchema = new mongoose.Schema({
-  fromName:  { type: String, default: 'Event Management Team' },
-  fromEmail: { type: String, default: '' },
-  orgName:   { type: String, default: '' },
-  replyTo:   { type: String, default: '' },
-  updatedAt: { type: Date,   default: Date.now }
+  fromName:     { type: String, default: 'Event Management Team' },
+  fromEmail:    { type: String, default: '' },
+  orgName:      { type: String, default: '' },
+  replyTo:      { type: String, default: '' },
+  geminiApiKey: { type: String, default: '' },
+  updatedAt:    { type: Date,   default: Date.now }
 });
 
 settingsSchema.statics.getSettings = async function () {

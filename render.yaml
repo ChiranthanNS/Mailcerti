@@ -28,6 +28,8 @@ services:
         sync: false   # set manually in Render dashboard
       - key: WEBHOOK_SECRET
         value: mailcerti_wh_secret_2025
+      - key: GEMINI_API_KEY
+        sync: false   # set manually in Render dashboard
       - key: FRONTEND_URL
         sync: false   # set to your Render frontend URL after deploy
 

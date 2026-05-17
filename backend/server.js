@@ -41,6 +41,7 @@ app.use('/api/colleges', require('./routes/colleges'));
 app.use('/api/registrations', require('./routes/registrations'));
 app.use('/api/analytics', require('./routes/analytics'));
 app.use('/api/settings', require('./routes/settings'));
+app.use('/api/compose', require('./routes/compose'));
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
