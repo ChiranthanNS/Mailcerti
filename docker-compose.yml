@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      args:
+        - VITE_BACKEND_URL=
+    image: mailcerti-app:latest
+    container_name: mailcerti_app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - MONGODB_URI=mongodb://mongodb:27017/mail_certi
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_USER=${SMTP_USER}
+      - SMTP_PASS=${SMTP_PASS}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - uploads_data:/app/uploads
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:6.0
+    container_name: mailcerti_mongodb
+    ports:
+      - "27017:27017" # optional, exposed for local inspection if needed
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+  uploads_data:
