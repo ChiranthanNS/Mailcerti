@@ -34,8 +34,9 @@ services:
         sync: false   # set to your Render frontend URL after deploy
 
   # ── Frontend: Vite/React Static Site ──
-  - type: static
+  - type: web
     name: mailcerti-frontend
+    runtime: static
     rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: dist
