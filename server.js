@@ -36,12 +36,13 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 });
 
 // ── Routes ──
-app.use('/api/events', require('./routes/events'));
-app.use('/api/colleges', require('./routes/colleges'));
-app.use('/api/registrations', require('./routes/registrations'));
-app.use('/api/analytics', require('./routes/analytics'));
-app.use('/api/settings', require('./routes/settings'));
-app.use('/api/compose', require('./routes/compose'));
+const routes = require('./routes.js');
+app.use('/api/events', routes.eventsRouter);
+app.use('/api/colleges', routes.collegesRouter);
+app.use('/api/registrations', routes.registrationsRouter);
+app.use('/api/analytics', routes.analyticsRouter);
+app.use('/api/settings', routes.settingsRouter);
+app.use('/api/compose', routes.composeRouter);
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
@@ -55,10 +56,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mail_cert
 // Every day at 8:00 AM — auto-send reminders for events happening tomorrow
 cron.schedule('0 8 * * *', async () => {
   console.log('🔔 Cron: Checking for events tomorrow...');
-  const Event = require('./models/Event');
-  const Registration = require('./models/Registration');
-  const { sendEmail } = require('./services/emailService');
-  const { reminderTemplate } = require('./services/emailTemplates');
+  const { Event } = require('./models');
+  const { Registration } = require('./models');
+  const { sendEmail } = require('./services');
+  const { reminderTemplate } = require('./services');
 
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);

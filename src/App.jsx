@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Dashboard from './pages/Dashboard';
-import Events from './pages/Events';
-import Colleges from './pages/Colleges';
-import Registrations from './pages/Registrations';
-import Analytics from './pages/Analytics';
-import Settings from './pages/Settings';
-import Compose from './pages/Compose';
+import Dashboard from './Dashboard';
+import Events from './Events';
+import Colleges from './Colleges';
+import Registrations from './Registrations';
+import Analytics from './Analytics';
+import Settings from './Settings';
+import Compose from './Compose';
 import './App.css';
 
 function App() {

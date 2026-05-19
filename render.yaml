@@ -3,7 +3,7 @@ services:
   - type: web
     name: mailcerti-backend
     runtime: node
-    rootDir: backend
+    rootDir: .
     buildCommand: npm install
     startCommand: node server.js
     plan: free
@@ -36,7 +36,7 @@ services:
   # ── Frontend: Vite/React Static Site ──
   - type: static
     name: mailcerti-frontend
-    rootDir: frontend
+    rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: dist
     envVars:

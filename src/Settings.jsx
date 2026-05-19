@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import api from '../api';
+import api from './api';
 
 export default function Settings() {
   const [form, setForm] = useState({

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import api from '../api';
+import api from './api';
 
 const EMAIL_TYPES = [
   { value: 'confirmation', label: '✅ Confirmation',  desc: 'Registration successful email',        group: 'registered' },

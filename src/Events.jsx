@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import api from '../api';
+import api from './api';
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 const WEBHOOK_SECRET = 'mailcerti_wh_secret_2025';

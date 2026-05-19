@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import toast from 'react-hot-toast';
-import api from '../api';
+import api from './api';
 
 const STATUS_BADGE = {
   registered: 'badge-registered',
