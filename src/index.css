@@ -1,2 +1,7 @@
-:root { color-scheme: dark; }
-body { margin: 0; }
+/* Global base — imported before App.css */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

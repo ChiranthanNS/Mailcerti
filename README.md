@@ -1,16 +1,40 @@
-# React + Vite
+# MailCerti — Event & Outreach Management Console
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack event management system for college events. Automates email workflows — registrations, shortlisting, reminders, and certificate generation & delivery.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend:** React + Vite (SPA)
+- **Backend:** Node.js + Express (monolithic `server.js`)
+- **Database:** MongoDB (Mongoose)
+- **Auth:** JWT + Google OAuth2
+- **Email:** Nodemailer (SMTP)
+- **Certificates:** PDFKit (name overlay on template image)
+- **Excel:** xlsx library
+- **AI:** Gemini API (email composition assistance)
 
-## React Compiler
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+# 1. Install dependencies
+npm install
 
-## Expanding the ESLint configuration
+# 2. Copy and configure environment variables
+cp .env.example .env
+# Edit .env with your MongoDB URI, SMTP credentials, Google OAuth Client ID
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# 3. Run in development (frontend + backend concurrently)
+npm run dev
+```
+
+## Features
+
+- 📅 **Event Management** — Create events with custom templates, Google Form webhook integration
+- 📤 **Excel Import** — AI-powered column mapping, bulk import with auto confirmation emails
+- ✉️ **Send Emails** — Shortlist/reject/remind/custom with AI composition & placeholders
+- 🏅 **Certificates** — Upload template, live preview, 5-step safety wizard, batch send PDFs
+- ⚙️ **Settings** — SMTP config, Gemini API key, email whitelist
+
+## Environment Variables
+
+See `.env.example` for all required variables.
